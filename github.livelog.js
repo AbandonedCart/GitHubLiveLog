@@ -103,7 +103,7 @@ type: "GET",
                             submission.push(makeli);
                         });
                         for (i=0;i<submission.length;i++) {
-                            $(anchor).append(submission.get(i));
+                            $(anchor).append(submission[i]);
                         }
                     } else if (type == "CommitCommentEvent") {
                         var author = data.actor.login;
