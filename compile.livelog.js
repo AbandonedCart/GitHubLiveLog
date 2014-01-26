@@ -48,13 +48,15 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                             + message + '<br />';
                             linksli.html(output);
                             makeli.append(linksli);
-                            if (builds.indexOf('./' + product + '-' + sha + '.apk') != "-1") {
-                               var ref = builds.indexOf('./' + product + '-' + sha + '.apk');
+                            var hash = sha.substring(0,7);
+                            if (builds.indexOf('./' + product + '-' + hash + '.apk') != "-1") {
+                               var ref = builds.indexOf('./' + product + '-' + hash + '.apk');
                                var build = "<button onclick='javascript:window.location.href=\"" + builds[ref] + "\";' data-icon='star' data-iconpos='right'>Download this build</button>";
                                makeli.append(build);
                             }
                             submission.push(makeli);
                         });
+                        submission.reverse();
                         for (i=0;i<submission.length;i++) {
                             $(anchor).append(submission[i]);
                         }
