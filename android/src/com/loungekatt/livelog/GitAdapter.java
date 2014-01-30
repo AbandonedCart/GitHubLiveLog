@@ -53,16 +53,15 @@
  * subject to to the terms and conditions of the Apache License, Version 2.0.
  */
 
-package com.reicast.emulator3;
+package com.loungekatt.livelog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import android.graphics.PorterDuff;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,13 +70,12 @@ import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
+import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebViewDatabase;
-import android.webkit.WebSettings.PluginState;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -88,12 +86,12 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 public class GitAdapter extends BaseAdapter {
 
-	private Activity activity;
+	private Context activity;
 	private ArrayList<HashMap<String, String>> data;
 	private LayoutInflater inflater = null;
 	private DisplayImageOptions options;
 
-	public GitAdapter(Activity a, ArrayList<HashMap<String, String>> d) {
+	public GitAdapter(Context a, ArrayList<HashMap<String, String>> d) {
 		this.activity = a;
 		this.data = d;
 		this.inflater = (LayoutInflater) activity
@@ -173,11 +171,8 @@ public class GitAdapter extends BaseAdapter {
 		builder.setCancelable(true);
 		builder.setTitle(title);
 		builder.setMessage(message);
-		LayoutInflater infalter = LayoutInflater.from(context);
-		final View popWebView = infalter.inflate(R.layout.webview, null);
-		WebView mWebView = (WebView) popWebView.findViewById(R.id.webframe);
-		mWebView = configureWebview(url, context, mWebView);
-		builder.setView(popWebView);
+		WebView mWebView = configureWebview(url, context);
+		builder.setView(mWebView);
 		builder.setPositiveButton("Close",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
@@ -188,8 +183,9 @@ public class GitAdapter extends BaseAdapter {
 		builder.create().show();
 	}
 
-	public static WebView configureWebview(String url, Context context,
-			WebView mWebView) {
+	public static WebView configureWebview(String url, Context context) {
+		WebView mWebView = new WebView(context);
+		mWebView.setScrollBarStyle(WebView.SCROLLBARS_INSIDE_OVERLAY);
 		mWebView.getSettings().setSupportZoom(true);
 		mWebView.getSettings().setBuiltInZoomControls(true);
 		if (Integer.parseInt(Build.VERSION.SDK) >= Build.VERSION_CODES.HONEYCOMB) {
