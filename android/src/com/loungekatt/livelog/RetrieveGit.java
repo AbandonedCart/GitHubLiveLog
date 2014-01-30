@@ -205,6 +205,7 @@ public class RetrieveGit extends
 
 	protected void onPostExecute(ArrayList<HashMap<String, String>> commitList) {
 		if (commitList != null && commitList.size() > 0) {
+			list.setSelector(R.drawable.list_selector);
 			list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 			GitAdapter adapter = new GitAdapter(mContext, commitList);
 			// Set adapter as specified collection
