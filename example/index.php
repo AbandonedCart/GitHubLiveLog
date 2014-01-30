@@ -80,7 +80,7 @@ function popupWindow(win){
 <script>
     $(document).ready(function() {
         var builds = new Array ("<?php echo implode('", "', glob("./compiled/*.apk")) ?>");
-        githubLive('reicast','Reicast-Emulator','#changelog', builds);
+        githubLive('reicast','Reicast-Emulator','#changelog', 'reicast-emulator', builds);
     });
 </script>
 <script src="http://twistedumbrella.cloudant.com/comicbuddy/_design/comicbuddy/js/data-cache-never-min.js"></script>
