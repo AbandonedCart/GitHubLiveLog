@@ -31,11 +31,11 @@ type: "GET",
                                 message = '';
                             }
                             var makeli = $("<div></div>");
-                            var innerItem = $("<h2></h2>");
+                            var innerItem = $("<h4></h4>");
                             innerItem.html(date + ' ' + time);
                             makeli.append(innerItem);
                             var linksli = $("<p></p>");
-                            var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                            var output = '<h6><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h6>'
                             + action + ' ' + project + '<br />'
                             + origin
                             + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
@@ -88,11 +88,11 @@ type: "GET",
                                 message = '';
                             }
                             var makeli = $("<div></div>");
-                            var innerItem = $("<h2></h2>");
+                            var innerItem = $("<h4></h4>");
                             innerItem.html(date + ' ' + time);
                             makeli.append(innerItem);
                             var linksli = $("<p></p>");
-                            var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                            var output = '<h6><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h6>'
                             + action + ' ' + branch + ' at ' + repo + '<br />'
                             + origin
                             + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
@@ -106,6 +106,32 @@ type: "GET",
                         for (i=0;i<submission.length;i++) {
                             $(anchor).append(submission[i]);
                         }
+                    } else if (type == "PullRequestEvent") {
+                       var number = data.payload.number;
+                       var sha = data.payload.pull_request.merge_commit_sha;
+                       var author = data.payload.pull_request.user.login;
+                       var stamp = data.payload.pull_request.created_at.split('T');
+                       var date = stamp[0].replace('T', '');;
+                       var time = stamp[1].replace('Z', '');
+                       var avatar = data.payload.pull_request.user.avatar_url;
+                       var title = data.payload.pull_request.title.split('\n\n', 1);
+                       var message = data.payload.pull_request.title.substring(data.payload.pull_request.title.indexOf('\n\n') + 1).replace    (/\n/g, '<br />');
+                       if (title == message) {
+                       message = '';
+                       }
+                       var url = data.payload.pull_request.html_url;
+                       var makeli = $("<div></div>");
+                       var innerItem = $("<h4></h4>");
+                       innerItem.html(date + ' ' + time);
+                       makeli.append(innerItem);
+                       var linksli = $("<p></p>");
+                       var output = '<h6><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h6>'
+                       + 'Submitted Pull #' + number + ' for ' + developer + '<br />'
+                       + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
+                       + title + '<br />';
+                       linksli.html(output);
+                       makeli.append(linksli);
+                       $(anchor).append(makeli);
                     } else if (type == "CommitCommentEvent") {
                         var author = data.actor.login;
                         var stamp = data.payload.comment.created_at.split('T');
@@ -115,11 +141,11 @@ type: "GET",
                         var message = data.payload.comment.body.replace(/\n/g, '<br />');
                         var url = data.payload.comment.html_url;
                         var makeli = $("<div></div>");
-                        var innerItem = $("<h2></h2>");
+                        var innerItem = $("<h4></h4>");
                         innerItem.html(date + ' ' + time);
                         makeli.append(innerItem);
                         var linksli = $("<p></p>");
-                        var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                        var output = '<h6><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h6>'
                         + 'Left a comment on ' + developer + '<br />'
                         + '<a href="' + url + '" target="_blank">View original GitHub comment</a><br /><br />'
                         + message + '<br />';
@@ -136,11 +162,11 @@ type: "GET",
                        var message = data.payload.comment.body.replace(/\n/g, '<br />');
                        var url = data.payload.comment.html_url;
                        var makeli = $("<div></div>");
-                       var innerItem = $("<h2></h2>");
+                       var innerItem = $("<h4></h4>");
                        innerItem.html(date + ' ' + time);
                        makeli.append(innerItem);
                        var linksli = $("<p></p>");
-                       var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                       var output = '<h6><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h6>'
                        + 'Left a comment on ' + issue + '<br />'
                        + '<a href="' + url + '" target="_blank">View original GitHub comment</a><br /><br />'
                        + message + '<br />';

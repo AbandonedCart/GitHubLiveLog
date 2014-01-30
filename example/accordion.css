@@ -1,0 +1,133 @@
+/*
+  Pixel to EM
+  http://pxtoem.com/
+*/
+body {
+    background-attachment: scroll;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	clear: both;
+}
+#introduction{
+    position: relative;
+	float: left;
+    margin-right: 40px;
+    width: 200px;
+    height: 140px;
+    margin-bottom: 20px;
+}
+#featured{
+	position: relative;
+	float: right;
+    margin-left: 20px;
+	width: 180px;
+	bottom: 5px;
+    vertical-align:bottom;
+    margin-top: 40px;
+}
+#webdesign {
+	text-align: center;
+	float: right;
+}
+#banner {
+    width: 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 60px;
+	text-align: center;
+    display:block; 
+    margin-left:auto; 
+    margin-right:auto;
+}
+#content img {
+	padding: 5px;
+	border: 1px solid #402640;
+}
+a {
+	color: #402640;
+	text-decoration: underline;
+}
+a:hover {
+	color: #dfb8df;
+	text-decoration: underline;
+}
+.style_bold {
+	font-weight: bold;
+}
+.style_italic {
+	font-style: italic;
+}
+/* root element for accordion. decorated with rounded borders and gradient background image */
+#accordion {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+    filter: alpha(opacity=95);
+    -moz-opacity: 0.95;
+    -khtml-opacity: 0.95;
+    opacity: 0.95;
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
+	border-top: 2px solid #725972;
+	border-right: 2px solid #725972;
+	border-bottom: 2px solid #725972;
+	border-left: 2px solid #725972;
+	background-color: #fff;
+}
+/* accordion header */
+#accordion h2 {
+	background:#ccc;
+	margin:0;
+	padding:5px 15px;
+	font-size:14px;
+	color:#fff !important;
+	text-align:center;
+	font-weight:normal;
+	border:1px solid #fff;
+	border-bottom:1px solid #ddd;
+	cursor:pointer;	
+}
+/* currently active header */
+#accordion h2.current {
+	cursor:default;
+	background-color:#fff;
+}
+/* accordion pane */
+#accordion .pane {
+	border:1px solid #fff;
+	border-width:0 2px;
+	display:none;
+	padding:15px;
+	color:#000;
+	font-size:12px;
+}
+/* a title inside pane */
+#accordion .pane h3 {
+	font-weight:normal;
+	margin:0 0 -5px 0;
+	font-size:16px;
+	color:#999;
+}
+.ui-listview-filter {
+    display : none;
+}
+
+.ui-listview-filter:nth-child(-n+2) {
+    display : block;
+}
+#provider {
+    position: relative;
+}
+#dreamcast{
+    position: relative;
+	float: left;
+    margin-left: 20px;
+    margin-right: 40px;
+    width: 120px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+#powered {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
