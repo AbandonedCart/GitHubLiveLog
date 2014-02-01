@@ -85,7 +85,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                       if (title == message) {
                       message = '';
                       }
-                      var makeli = $("<div></div>");
+                      var makeli = $("<li></li>");
                       var innerItem = $("<h4></h4>");
                       innerItem.html(date + ' ' + time);
                       makeli.append(innerItem);
@@ -152,7 +152,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                             if (title == message) {
                                 message = '';
                             }
-                            var makeli = $("<div></div>");
+                            var makeli = $("<li></li>");
                             var innerItem = $("<h4></h4>");
                             innerItem.html(date + ' ' + time);
                             makeli.append(innerItem);
@@ -191,7 +191,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        message = '';
                        }
                        var url = data.payload.pull_request.html_url;
-                       var makeli = $("<div></div>");
+                       var makeli = $("<li></li>");
                        var innerItem = $("<h4></h4>");
                        innerItem.html(date + ' ' + time);
                        makeli.append(innerItem);
@@ -211,7 +211,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                         var avatar = data.actor.avatar_url;
                         var message = data.payload.comment.body.replace(/\n/g, '<br />');
                         var url = data.payload.comment.html_url;
-                        var makeli = $("<div></div>");
+                        var makeli = $("<li></li>");
                         var innerItem = $("<h4></h4>");
                         innerItem.html(date + ' ' + time);
                         makeli.append(innerItem);
@@ -232,7 +232,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        var avatar = data.actor.avatar_url;
                        var message = data.payload.comment.body.replace(/\n/g, '<br />');
                        var url = data.payload.comment.html_url;
-                       var makeli = $("<div></div>");
+                       var makeli = $("<li></li>");
                        var innerItem = $("<h4></h4>");
                        innerItem.html(date + ' ' + time);
                        makeli.append(innerItem);

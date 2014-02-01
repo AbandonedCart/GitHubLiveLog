@@ -85,7 +85,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                       if (title == message) {
                       message = '';
                       }
-                      var makeli = $("<div></div>");
+                      var makeli = $("<li></li>");
                       var innerItem = $("<h2></h2>");
                       innerItem.html(date + ' ' + time);
                       makeli.append(innerItem);
@@ -152,12 +152,12 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                             if (title == message) {
                                 message = '';
                             }
-                            var makeli = $("<div></div>");
+                            var makeli = $("<li></li>");
                             var innerItem = $("<h2></h2>");
                             innerItem.html(date + ' ' + time);
                             makeli.append(innerItem);
                             var linksli = $("<p></p>");
-                            var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
+                            var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
                             + action + ' ' + branch + ' at ' + repo + '<br />'
                             + origin
                             + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
@@ -191,12 +191,12 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        message = '';
                        }
                        var url = data.payload.pull_request.html_url;
-                       var makeli = $("<div></div>");
+                       var makeli = $("<li></li>");
                        var innerItem = $("<h2></h2>");
                        innerItem.html(date + ' ' + time);
                        makeli.append(innerItem);
                        var linksli = $("<p></p>");
-                       var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
+                       var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
                        + 'Submitted Pull #' + number + ' for ' + developer + '<br />'
                        + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
                        + title + '<br />';
@@ -211,12 +211,12 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                         var avatar = data.actor.avatar_url;
                         var message = data.payload.comment.body.replace(/\n/g, '<br />');
                         var url = data.payload.comment.html_url;
-                        var makeli = $("<div></div>");
+                        var makeli = $("<li></li>");
                         var innerItem = $("<h2></h2>");
                         innerItem.html(date + ' ' + time);
                         makeli.append(innerItem);
                         var linksli = $("<p></p>");
-                        var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
+                        var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
                         + 'Left a comment on ' + developer + '<br />'
                         + '<a href="' + url + '" target="_blank">View original GitHub comment</a><br /><br />'
                         + message + '<br />';
@@ -232,12 +232,12 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        var avatar = data.actor.avatar_url;
                        var message = data.payload.comment.body.replace(/\n/g, '<br />');
                        var url = data.payload.comment.html_url;
-                       var makeli = $("<div></div>");
+                       var makeli = $("<li></li>");
                        var innerItem = $("<h2></h2>");
                        innerItem.html(date + ' ' + time);
                        makeli.append(innerItem);
                        var linksli = $("<p></p>");
-                       var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
+                       var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
                        + 'Left a comment on ' + issue + '<br />'
                        + '<a href="' + url + '" target="_blank">View original GitHub comment</a><br /><br />'
                        + message + '<br />';
