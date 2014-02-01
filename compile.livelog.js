@@ -106,7 +106,6 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                       }
                       submission.push(makeli);
                       });
-               submission.reverse();
                for (i=0;i<submission.length;i++) {
                $(anchor).append(submission[i]);
                }
