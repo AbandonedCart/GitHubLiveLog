@@ -53,7 +53,69 @@
  * subject to to the terms and conditions of the Apache License, Version 2.0.
  */
 
-var githubLive = function githubLive(account, developer, anchor, product, builds) {
+var githubLive = function githubLive(account, developer, anchor, product, builds, project) {
+    if (project != null && project != "") {
+        $.ajax({
+               url: 'https://api.github.com/repos/' + account + '/' + project + '/commits?callback=jsonp',
+               type: "GET",
+               dataType: "jsonp",
+               success: function (dbInfo) {
+               var submission = new Array();
+               $.each(dbInfo.data, function (index, data) {
+                      var author = this.commit.committer.name;
+                      var stamp = this.commit.committer.date.split('T');
+                      var date = stamp[0].replace('T', '');;
+                      var time = stamp[1].replace('Z', '');
+                      var avatar = this.committer.avatar_url;
+
+                      var sha = this.sha;
+                      var origin = this.author.login;
+                      var apiUrl = this.url;
+                      var gitUrl = apiUrl.replace('https://api.github.com/repos', 'https://github.com');
+                      var url = gitUrl.replace('commits', 'commit');
+                      var title = this.commit.message.split('\n\n', 1);
+                      var message = this.commit.message.substring(this.commit.message.indexOf('\n\n') + 1).replace(/\n/g, '<br />');
+                      var action = 'Pushed to';
+                      if (author != origin) {
+                      origin = author + ' <- [ ' + origin + ' ]<br />';
+                      action = 'Picked for';
+                      } else {
+                      origin = '';
+                      }
+                      if (title == message) {
+                      message = '';
+                      }
+                      var makeli = $("<div></div>");
+                      var innerItem = $("<h2></h2>");
+                      innerItem.html(date + ' ' + time);
+                      makeli.append(innerItem);
+                      var linksli = $("<p></p>");
+                      var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h6>'
+                      + action + ' ' + project + '<br />'
+                      + origin
+                      + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
+                      + '<b>' + title + '</b><br />'
+                      + message + '<br />';
+                      linksli.html(output);
+                      makeli.append(linksli);
+                      var hash = sha.substring(0,7);
+                      if (builds.indexOf('./compiled/' + product + '-' + hash + '.apk') != "-1") {
+                      var ref = builds.indexOf('./compiled' + product + '-' + hash + '.apk');
+                      var build = "<button onclick='javascript:window.location.href=\"" + builds[ref] + "\";' data-icon='star' data-iconpos='right'>Download this build</button>";
+                      makeli.append(build);
+                      }
+                      submission.push(makeli);
+                      });
+               submission.reverse();
+               for (i=0;i<submission.length;i++) {
+               $(anchor).append(submission[i]);
+               }
+               },
+               error: function (status) {
+               console.log(status);
+               }
+               });
+    } else {
         $.ajax({
             url: 'https://api.github.com/users/' + account + '/events?callback=jsonp',
             type: "GET",
@@ -95,7 +157,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                             innerItem.html(date + ' ' + time);
                             makeli.append(innerItem);
                             var linksli = $("<p></p>");
-                            var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                            var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
                             + action + ' ' + branch + ' at ' + repo + '<br />'
                             + origin
                             + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
@@ -134,7 +196,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        innerItem.html(date + ' ' + time);
                        makeli.append(innerItem);
                        var linksli = $("<p></p>");
-                       var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                       var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
                        + 'Submitted Pull #' + number + ' for ' + developer + '<br />'
                        + '<a href="' + url + '" target="_blank">' + sha + '</a><br /><br />'
                        + title + '<br />';
@@ -154,7 +216,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                         innerItem.html(date + ' ' + time);
                         makeli.append(innerItem);
                         var linksli = $("<p></p>");
-                        var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                        var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
                         + 'Left a comment on ' + developer + '<br />'
                         + '<a href="' + url + '" target="_blank">View original GitHub comment</a><br /><br />'
                         + message + '<br />';
@@ -175,7 +237,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        innerItem.html(date + ' ' + time);
                        makeli.append(innerItem);
                        var linksli = $("<p></p>");
-                       var output = '<h4><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h4>'
+                       var output = '<h2><img src="' + avatar + '" width="40px" style="vertical-align:middle">&nbsp;&nbsp;' + author + '</h2>'
                        + 'Left a comment on ' + issue + '<br />'
                        + '<a href="' + url + '" target="_blank">View original GitHub comment</a><br /><br />'
                        + message + '<br />';
@@ -190,3 +252,4 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
             }
         });
     };
+}
