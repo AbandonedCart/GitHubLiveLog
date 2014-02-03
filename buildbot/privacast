@@ -1,0 +1,30 @@
+#! /bin/sh
+
+export HOST=/PATH/TO/buildbot
+
+privacast () {
+
+if [ ! -e $HOST/$1 ]; then
+    mkdir $HOST/$1
+    cp -R $HOST/builds.php $HOST/$1/index.php
+fi
+    cd /PATH/TO/RESOURCES
+if [ ! -e "$1" ]; then
+    git clone $2 $1
+    cp -R /PATH/TO/RESOURCES/ant.properties $1/PATH/TO/ANDROID_PROJECT/
+    cp -R /PATH/TO/RESOURCES/local.properties $1/PATH/TO/ANDROID_PROJECT/
+    cp -R /PATH/TO/RESOURCES/tools $1/PATH/TO/ANDROID_PROJECT/
+fi
+    cd $1
+    git fetch origin $3
+    git reset --hard FETCH_HEAD
+    export HASH=`git rev-parse HEAD | cut -c1-7`
+if [ ! -e $HOST/$1/PROJECT_NAME-$HASH.apk ]; then
+    sh PATH/TO/ANDROID_PROJECT/tools/buildbot.sh $1 $HASH
+fi
+
+}
+
+privacast $1 $2 $3
+
+exit 0
