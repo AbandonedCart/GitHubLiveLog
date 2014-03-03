@@ -66,6 +66,9 @@ function popupWindow(win){
 <ul id="archive" data-role="listview" data-filter="true">
 <?php
     $phpfiles = glob("./compiled/*.apk");
+    usort($phpfiles, function ($a, $b) {
+        return filemtime($b) - filemtime($a);
+    });
     foreach($phpfiles as $phpfile)
     {
         echo "<button onclick=\"javascript:window.location.href='$phpfile';\" data-icon=\"star\" data-iconpos=\"right\">".basename($phpfile)."</button>";

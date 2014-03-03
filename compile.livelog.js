@@ -202,7 +202,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        linksli.html(output);
                        makeli.append(linksli);
                        $(anchor).append(makeli);
-                    } else if (type == "CommitCommentEvent") {
+                    /*} else if (type == "CommitCommentEvent") {
                         var author = data.actor.login;
                         var stamp = data.payload.comment.created_at.split('T');
                         var date = stamp[0].replace('T', '');;
@@ -243,7 +243,7 @@ var githubLive = function githubLive(account, developer, anchor, product, builds
                        linksli.html(output);
                        makeli.append(linksli);
                        $(anchor).append(makeli);
-                    }
+                    */}
                 });
             },
             error: function (status) {
