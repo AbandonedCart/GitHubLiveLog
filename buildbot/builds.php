@@ -39,7 +39,7 @@ function popupWindow(win){
 // -->
 </script>
 <link rel="stylesheet" href="http://twistedumbrella.cloudant.com/comicbuddy/_design/comicbuddy/css/jquery.mobile-1.3.0.min.css" />
-<link rel="stylesheet" type="text/css" href="../accordion.css">
+<link rel="stylesheet" type="text/css" href="accordion.css">
 </head>
 <!-- Begin Container -->
 <div data-role="page" id="tabbed">
@@ -93,7 +93,7 @@ function popupWindow(win){
 <script>
     $(document).ready(function() {
         var builds = new Array ("<?php echo implode('", "', glob("./compiled/*.apk")) ?>");
-        githubLive('ACCOUNT','DEVELOPER','#changelog','PROJECT_NAME',builds);
+        githubLive('ACCOUNT','DEVELOPER','#changelog','./compiled/PROJECT_NAME',builds);
     });
 </script>
 <script src="http://twistedumbrella.cloudant.com/comicbuddy/_design/comicbuddy/js/data-cache-never-min.js"></script>

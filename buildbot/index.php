@@ -75,7 +75,7 @@ Please note: Your e-mail is only used to create your personal archive.
 <script src="http://twistedumbrella.cloudant.com/comicbuddy/_design/comicbuddy/js/jquery-1.8.2.min.js"></script>
 <script src="http://twistedumbrella.cloudant.com/comicbuddy/_design/comicbuddy/js/jquery.mobile-1.3.0.min.js"></script>
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-<script src="livelog.js"></script>
+<script src="http://loungekatt.github.io/GitHubLiveLog/standard/compile.livelog.js"></script>
 <script src="http://twistedumbrella.cloudant.com/comicbuddy/_design/comicbuddy/js/data-cache-never-min.js"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
  *
  * 3. All advertising materials mentioning features or use of this
  *    software must display the following acknowledgment:
- *    "This product includes software developed by Lounge Katt" unless
+ *    "This product includes software developed by LoungeKatt" unless
  *    otherwise displayed by public repository entries.
  *
  * 4. The names "Lounge Katt", "TwistedUmbrella", and "LiveLog"  
@@ -29,7 +29,7 @@
  *
  * 6. Redistributions of any form whatsoever must retain the following
  *    acknowledgment:
- *    "This product includes software developed by Lounge Katt" unless
+ *    "This product includes software developed by LoungeKatt" unless
  *    otherwise displayed by tagged repository entries.
  *
  * THIS SOFTWARE IS PROVIDED BY Lounge Katt ``AS IS'' AND ANY
@@ -156,7 +156,7 @@ public class GitAdapter extends BaseAdapter {
 		vi.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				System.gc();
-				String output = message + "\n\n" + " - " + author;
+				String output = title + "\n\n" + message + "\n\n" + " - " + author;
 				displayCommit(sha, output, url, v.getContext());
 			}
 		});
@@ -165,11 +165,11 @@ public class GitAdapter extends BaseAdapter {
 		return vi;
 	}
 
-	public static void displayCommit(String title, String message, String url,
+	private void displayCommit(String sha, String message, String url,
 			Context context) {
 		final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 		builder.setCancelable(true);
-		builder.setTitle(title);
+		builder.setTitle(sha.substring(0,7));
 		builder.setMessage(message);
 		WebView mWebView = configureWebview(url, context);
 		builder.setView(mWebView);
@@ -183,7 +183,7 @@ public class GitAdapter extends BaseAdapter {
 		builder.create().show();
 	}
 
-	public static WebView configureWebview(String url, Context context) {
+	private WebView configureWebview(String url, Context context) {
 		WebView mWebView = new WebView(context);
 		mWebView.setScrollBarStyle(WebView.SCROLLBARS_INSIDE_OVERLAY);
 		mWebView.getSettings().setSupportZoom(true);

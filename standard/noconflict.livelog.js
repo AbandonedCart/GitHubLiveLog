@@ -1,5 +1,5 @@
 /* ====================================================================
- * Copyright (c) 2012-2013 Lounge Katt Entertainment.  All rights reserved.
+ * Copyright (c) 2012-2016 LoungeKatt Entertainment.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -15,24 +15,24 @@
  *
  * 3. All advertising materials mentioning features or use of this
  *    software must display the following acknowledgment:
- *    "This product includes software developed by Lounge Katt" unless
+ *    "This product includes software developed by LoungeKatt" unless
  *    otherwise displayed by public repository entries.
  *
- * 4. The names "Lounge Katt", "TwistedUmbrella", and "LiveLog"
+ * 4. The names "LoungeKatt", "TwistedUmbrella", and "LiveLog"
  *    must not be used to endorse or promote products derived from this
  *    software without prior written permission. For written permission,
  *    please contact admin@loungekatt.com.
  *
  * 5. Products derived from this software may not be called "LiveLog"
  *    nor may "LiveLog" appear in their names without prior written
- *    permission of Lounge Katt Entertainment.
+ *    permission of LoungeKatt Entertainment.
  *
  * 6. Redistributions of any form whatsoever must retain the following
  *    acknowledgment:
- *    "This product includes software developed by Lounge Katt" unless
+ *    "This product includes software developed by LoungeKatt" unless
  *    otherwise displayed by tagged repository entries.
  *
- * THIS SOFTWARE IS PROVIDED BY Lounge Katt ``AS IS'' AND ANY
+ * THIS SOFTWARE IS PROVIDED BY LoungeKatt ``AS IS'' AND ANY
  * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
  * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR

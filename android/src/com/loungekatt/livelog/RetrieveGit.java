@@ -15,7 +15,7 @@
  *
  * 3. All advertising materials mentioning features or use of this
  *    software must display the following acknowledgment:
- *    "This product includes software developed by Lounge Katt" unless
+ *    "This product includes software developed by LoungeKatt" unless
  *    otherwise displayed by public repository entries.
  *
  * 4. The names "Lounge Katt", "TwistedUmbrella", and "LiveLog"  
@@ -29,7 +29,7 @@
  *
  * 6. Redistributions of any form whatsoever must retain the following
  *    acknowledgment:
- *    "This product includes software developed by Lounge Katt" unless
+ *    "This product includes software developed by LoungeKatt" unless
  *    otherwise displayed by tagged repository entries.
  *
  * THIS SOFTWARE IS PROVIDED BY Lounge Katt ``AS IS'' AND ANY

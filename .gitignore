@@ -1,0 +1,11 @@
+.DS_Store
+._*
+*.iml
+*.o
+*.o.d
+bin
+gen
+obj
+.gradle
+.idea
+build/
