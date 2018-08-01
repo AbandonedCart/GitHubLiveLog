@@ -1,5 +1,5 @@
 /* ====================================================================
- * Copyright (c) 2012-2016 LoungeKatt Entertainment.  All rights reserved.
+ * Copyright (c) 2012-2018 Abandoned Cart.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -18,10 +18,10 @@
  *    "This product includes software developed by LoungeKatt" unless
  *    otherwise displayed by public repository entries.
  *
- * 4. The names "LoungeKatt", "TwistedUmbrella", and "LiveLog"
- *    must not be used to endorse or promote products derived from this
- *    software without prior written permission. For written permission,
- *    please contact admin@loungekatt.com.
+ * 4. The names "Ender's Games", "TwistedUmbrella", "Abandoned Cart"
+ *    and "LiveLog" must not be used to endorse or promote products
+ *    derived from thissoftware without prior written permission. For
+ *    written permission, please contact enderinexiledc@gmail.com
  *
  * 5. Products derived from this software may not be called "LiveLog"
  *    nor may "LiveLog" appear in their names without prior written

@@ -11,7 +11,7 @@ If you are not using jQuery Mobile, use the “standard/“ version
 Hosting Compiled Versions:
 
 ```
-<script src="http://loungekatt.github.io/GitHubLiveLog/github.livelog.js"></script>
+<script src="http://abandonedcart.github.io/GitHubLiveLog/github.livelog.js"></script>
 <script>
     $(document).ready(function() {
         var builds = new Array ("<?php echo implode('", "', glob("./compiled/*.apk")) ?>");
@@ -24,7 +24,7 @@ Hosting Compiled Versions:
 Hosting Source References:
 
 ```
-<script src="http://loungekatt.github.io/GitHubLiveLog/github.livelog.js"></script>
+<script src="http://abandonedcart.github.io/GitHubLiveLog/github.livelog.js"></script>
 <script>
     $(document).ready(function() {
         githubLive('ACCOUNT(ORGANIZATION)','DISPLAY-NAME,'HTML-ANCHOR-ID');
@@ -35,7 +35,7 @@ Hosting Source References:
 or
 
 ```
-<script src="http://loungekatt.github.io/GitHubLiveLog/github.livelog.js"></script>
+<script src="http://abandonedcart.github.io/GitHubLiveLog/github.livelog.js"></script>
 <script>
     $(document).ready(function() {
         githubLive('ACCOUNT(ORGANIZATION)','DISPLAY-NAME,'HTML-ANCHOR-ID','PROJECT');
@@ -46,7 +46,7 @@ or
 Hosting Source References (no-conflict):
 
 ```
-<script src="http://loungekatt.github.io/GitHubLiveLog/standard/noconflict.livelog.js"></script>
+<script src="http://abandonedcart.github.io/GitHubLiveLog/standard/noconflict.livelog.js"></script>
 <script>
     jQuery(document).ready(function() {
         githubLive('ACCOUNT','ORGANIZATION-NAME,'HTML-ANCHOR-ID');
@@ -57,15 +57,10 @@ Hosting Source References (no-conflict):
 or
 
 ```
-<script src="http://loungekatt.github.io/GitHubLiveLog/standard/noconflict.livelog.js"></script>
+<script src="http://abandonedcart.github.io/GitHubLiveLog/standard/noconflict.livelog.js"></script>
 <script>
     jQuery(document).ready(function() {
         githubLive('ACCOUNT','ORGANIZATION-NAME,'HTML-ANCHOR-ID','PROJECT');
     });
 </script>
 ```
-
-Demonstration
---------------------
-http://loungekatt.com
-http://reicast.loungekatt.com
